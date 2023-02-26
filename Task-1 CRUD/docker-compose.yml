@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      PGDATA: /data/postgres
+      POSTGRES_DB: crudgo
+    volumes:
+       - postgresnew:/data/postgres
+    ports:
+      - "4523:5432"
+    restart: unless-stopped
+
+volumes:
+    postgresnew:
